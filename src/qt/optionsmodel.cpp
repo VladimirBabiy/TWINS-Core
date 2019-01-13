@@ -254,7 +254,7 @@ QVariant OptionsModel::data(const QModelIndex& index, int role) const
         case HideZeroBalances:
             return settings.value("fHideZeroBalances");
         case ZeromintEnable:
-            return QVariant(fEnableZeromint);
+            return QVariant(false);
         case ZeromintPercentage:
             return QVariant(nZeromintPercentage);
         case ZeromintPrefDenom:
@@ -369,7 +369,7 @@ bool OptionsModel::setData(const QModelIndex& index, const QVariant& value, int 
             }
             break;
         case ZeromintEnable:
-            fEnableZeromint = value.toBool();
+            fEnableZeromint = false;
             settings.setValue("fZeromintEnable", fEnableZeromint);
             emit zeromintEnableChanged(fEnableZeromint);
             break;
